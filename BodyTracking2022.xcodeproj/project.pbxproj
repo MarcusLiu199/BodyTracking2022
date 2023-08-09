@@ -12,6 +12,10 @@
 		A20D636A2A8432C1006D2CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20D63692A8432C1006D2CF6 /* Assets.xcassets */; };
 		A20D636D2A8432C1006D2CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20D636C2A8432C1006D2CF6 /* Preview Assets.xcassets */; };
 		A20D63742A8433FA006D2CF6 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D63732A8433FA006D2CF6 /* ARViewContainer.swift */; };
+		A20D63762A843E39006D2CF6 /* SkeletonJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D63752A843E39006D2CF6 /* SkeletonJoint.swift */; };
+		A20D63782A843EB3006D2CF6 /* SkeletonBone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D63772A843EB3006D2CF6 /* SkeletonBone.swift */; };
+		A20D637A2A844154006D2CF6 /* Bones.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D63792A844154006D2CF6 /* Bones.swift */; };
+		A20D637C2A8443C5006D2CF6 /* BodySkeleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D637B2A8443C5006D2CF6 /* BodySkeleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		A20D63692A8432C1006D2CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20D636C2A8432C1006D2CF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A20D63732A8433FA006D2CF6 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		A20D63752A843E39006D2CF6 /* SkeletonJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonJoint.swift; sourceTree = "<group>"; };
+		A20D63772A843EB3006D2CF6 /* SkeletonBone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonBone.swift; sourceTree = "<group>"; };
+		A20D63792A844154006D2CF6 /* Bones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bones.swift; sourceTree = "<group>"; };
+		A20D637B2A8443C5006D2CF6 /* BodySkeleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodySkeleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 				A20D63652A8432BE006D2CF6 /* BodyTracking2022App.swift */,
 				A20D63672A8432BE006D2CF6 /* ContentView.swift */,
 				A20D63732A8433FA006D2CF6 /* ARViewContainer.swift */,
+				A20D63752A843E39006D2CF6 /* SkeletonJoint.swift */,
+				A20D63772A843EB3006D2CF6 /* SkeletonBone.swift */,
+				A20D63792A844154006D2CF6 /* Bones.swift */,
+				A20D637B2A8443C5006D2CF6 /* BodySkeleton.swift */,
 				A20D63692A8432C1006D2CF6 /* Assets.xcassets */,
 				A20D636B2A8432C1006D2CF6 /* Preview Content */,
 			);
@@ -140,9 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20D637C2A8443C5006D2CF6 /* BodySkeleton.swift in Sources */,
 				A20D63682A8432BE006D2CF6 /* ContentView.swift in Sources */,
+				A20D637A2A844154006D2CF6 /* Bones.swift in Sources */,
+				A20D63782A843EB3006D2CF6 /* SkeletonBone.swift in Sources */,
 				A20D63662A8432BE006D2CF6 /* BodyTracking2022App.swift in Sources */,
 				A20D63742A8433FA006D2CF6 /* ARViewContainer.swift in Sources */,
+				A20D63762A843E39006D2CF6 /* SkeletonJoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

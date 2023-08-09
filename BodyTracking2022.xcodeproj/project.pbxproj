@@ -11,6 +11,7 @@
 		A20D63682A8432BE006D2CF6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D63672A8432BE006D2CF6 /* ContentView.swift */; };
 		A20D636A2A8432C1006D2CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20D63692A8432C1006D2CF6 /* Assets.xcassets */; };
 		A20D636D2A8432C1006D2CF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20D636C2A8432C1006D2CF6 /* Preview Assets.xcassets */; };
+		A20D63742A8433FA006D2CF6 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20D63732A8433FA006D2CF6 /* ARViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		A20D63672A8432BE006D2CF6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A20D63692A8432C1006D2CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20D636C2A8432C1006D2CF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A20D63732A8433FA006D2CF6 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				A20D63652A8432BE006D2CF6 /* BodyTracking2022App.swift */,
 				A20D63672A8432BE006D2CF6 /* ContentView.swift */,
+				A20D63732A8433FA006D2CF6 /* ARViewContainer.swift */,
 				A20D63692A8432C1006D2CF6 /* Assets.xcassets */,
 				A20D636B2A8432C1006D2CF6 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				A20D63682A8432BE006D2CF6 /* ContentView.swift in Sources */,
 				A20D63662A8432BE006D2CF6 /* BodyTracking2022App.swift in Sources */,
+				A20D63742A8433FA006D2CF6 /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +273,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BodyTracking2022/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to enable Augmented Reality Features";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +303,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"BodyTracking2022/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to enable Augmented Reality Features";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

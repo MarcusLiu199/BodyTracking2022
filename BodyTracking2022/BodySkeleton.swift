@@ -15,10 +15,77 @@ class BodySkeleton: Entity {
     
     required init(for bodyAnchor: ARBodyAnchor) {
         super.init()
+        
+        for jointName in ARSkeletonDefinition.defaultBody3D.jointNames {
+            var jointRadius: Float = 0.05
+            var jointColor: UIColor = .green
+            
+            switch jointName {
+            case "neck_1_joint", "neck_2_joint", "neck_3_joint", "neck_4_joint", "head_joint", "left_shoulder_1_joint", "right_shoulder_1_joint":
+                jointRadius *= 0.5
+                
+            case "jaw_joint", "chin_joint", "left_eye_joint", "left_eyeLowerLid_joint", "left_eyeUpperLid_joint", "left_eyeball_joint", "nose_joint", "right_eye_joint", "right_eyeLowerLid_joint", "right_eyeUpperLid_joint", "right_eyeball_joint":
+                jointRadius *= 0.2
+                jointColor = .yellow
+            case _ where jointName.hasPrefix("spine_"):
+                jointRadius *= 0.75
+            case "left_hand_joint", "right_hand_joint":
+                jointRadius *= 1
+                jointColor = .green
+            case _ where jointName.hasPrefix("left_hand") || jointName.hasPrefix("right_hand"):
+                jointRadius *= 0.25
+                jointColor = .yellow
+            case _ where jointName.hasPrefix("left_toes") || jointName.hasPrefix("right_toes"):
+                jointRadius *= 0.5
+                jointColor = .yellow
+            default:
+                jointRadius = 0.05
+            }
+            
+            // Create an entity for the joint, add to joints directory, and add it to the parent entity (i.e. bodySkeleton)
+            let joinEntity = createJoint(radius: jointRadius, color: jointColor)
+            joints[jointName] = joinEntity
+            self.addChild(joinEntity)
+        }
+        
+        for bone in Bones.allCases {
+            guard let skeletonBone = createSkeletonBone(bone: bone, bodyAnchor: bodyAnchor)
+            else { continue }
+            
+            // Create an entity for the bone, add to bones directory, and add it to the parent entity (i.e. bodySkeleton)
+            let boneEntity = createBoneEntity(for: skeletonBone)
+            bones[bone.name] = boneEntity
+            self.addChild(boneEntity)
+        }
     }
     
     required init() {
         fatalError("init() has not been implemented")
+    }
+    
+    func update(with bodyAnchor: ARBodyAnchor) {
+        let rootPosition = simd_make_float3(bodyAnchor.transform.columns.3)
+        
+        for jointName in ARSkeletonDefinition.defaultBody3D.jointNames {
+            if let jointEntity = joints[jointName],
+               let jointEntityTransform = bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: jointName)) {
+                
+                let jointEntityOffsetFromRoot = simd_make_float3(jointEntityTransform.columns.3) // relative to root
+                jointEntity.position = jointEntityOffsetFromRoot + rootPosition // relative to world reference frame
+                jointEntity.orientation = Transform(matrix: jointEntityTransform).rotation
+            }
+        }
+        
+        for bone in Bones.allCases {
+            let boneName = bone.name
+            
+            guard let entity = bones[boneName],
+                  let skeletonBone = createSkeletonBone(bone: bone, bodyAnchor: bodyAnchor)
+            else {continue}
+            
+            entity.position = skeletonBone.centerPosition
+            entity.look(at: skeletonBone.toJoint.position, from: skeletonBone.centerPosition, relativeTo: nil) // set orientation for bone
+        }
     }
     
     // Create a sphere entity for every single joint in our skeleton
